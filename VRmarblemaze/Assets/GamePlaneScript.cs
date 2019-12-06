@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GamePlaneScript : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class GamePlaneScript : MonoBehaviour
         Quaternion target = Quaternion.Euler(tiltAroundX, 0, tiltAroundZ);
         transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
 
-
+        if (Input.GetButtonDown("Jump") || Input.GetKeyDown("r"))
+        { //If you press R
+            SceneManager.LoadScene("SampleScene"); //Load scene called Game
+        }
     }
 }
